@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+ <!-- ID Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="ID: " />
+
+  <TextView
+      android:id="@+id/tvID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- EPC Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="EPC: " />
+
+  <TextView
+      android:id="@+id/tvEPC"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- RSSI Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="RSSI: " />
+
+  <TextView
+      android:id="@+id/tvRssi"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- Count Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Count: " />
+
+  <TextView
+      android:id="@+id/tvCount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- Machine Name Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Machine Name: " />
+
+  <TextView
+      android:id="@+id/tvMachineName"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- Operation Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Operation: " />
+
+  <TextView
+      android:id="@+id/tvOperation"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- Cell Name Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Cell Name: " />
+
+  <TextView
+      android:id="@+id/tvCellName"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- Asset Code Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Asset Code: " />
+
+  <TextView
+      android:id="@+id/tvAssetCode"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+ <!-- Scan Time Field -->
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Scan Time: " />
+
+  <TextView
+      android:id="@+id/tvScannedTime"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+</LinearLayout>

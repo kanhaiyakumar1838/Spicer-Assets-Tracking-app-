@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.WriteFragment">
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/etPWDWrite"
+        app:layout_constraintBottom_toBottomOf="@id/etPWDWrite"
+        android:id="@+id/tvPWD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password" />
+    <EditText
+        android:hint="00000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvPWD"
+        android:id="@+id/etPWDWrite"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/etPWDWrite"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/spMembankWrite"
+        app:layout_constraintBottom_toBottomOf="@id/spMembankWrite"
+        android:id="@+id/tvMembank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/area" />
+    <Spinner
+        app:layout_constraintTop_toBottomOf="@id/etPWDWrite"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvMembank"
+        android:id="@+id/spMembankWrite"
+        android:layout_width="0dp"
+        android:entries="@array/arrMembank"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/spMembankWrite"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/etAddressWrite"
+        app:layout_constraintBottom_toBottomOf="@id/etAddressWrite"
+        android:id="@+id/tvStartAddressWrite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_address" />
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@id/spMembankWrite"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvStartAddressWrite"
+        android:id="@+id/etAddressWrite"
+        android:hint="2"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/etAddressWrite"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/etLenWrite"
+        app:layout_constraintBottom_toBottomOf="@id/etLenWrite"
+        android:id="@+id/tvLen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_length" />
+    <EditText
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/etAddressWrite"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvLen"
+        android:id="@+id/etLenWrite"
+        android:layout_width="0dp"
+        android:hint="6"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/etLenWrite"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/etDataWrite"
+        app:layout_constraintBottom_toBottomOf="@id/etDataWrite"
+        android:id="@+id/tvData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data" />
+    <EditText
+        app:layout_constraintTop_toBottomOf="@id/etLenWrite"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvData"
+        android:id="@+id/etDataWrite"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        app:layout_constraintLeft_toLeftOf="@id/etDataWrite"
+        app:layout_constraintTop_toBottomOf="@id/etDataWrite"
+        android:id="@+id/cbSelectWrite"
+        android:text="@string/check_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+   <CheckBox
+       android:visibility="gone"
+       android:layout_marginTop="30dp"
+       app:layout_constraintLeft_toLeftOf="@id/etDataWrite"
+       app:layout_constraintTop_toBottomOf="@id/etDataWrite"
+       android:id="@+id/cb_write_zh"
+       android:text="@string/write_zh"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       tools:ignore="MissingConstraints" />
+
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/cbSelectWrite"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="40dp"
+        android:id="@+id/btnWrite"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/write" />
+   <TextView
+       android:text="@string/tip"
+       app:layout_constraintTop_toBottomOf="@id/btnWrite"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout >

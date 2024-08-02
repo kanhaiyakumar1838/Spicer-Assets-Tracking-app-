@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- EPC Number Field -->
+    <EditText
+        android:id="@+id/etEpcNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="EPC Number"
+        android:inputType="text" />
+
+    <!-- Fetch EPC Button -->
+    <Button
+        android:id="@+id/btnFetchEpc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch EPC"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Machine Name Field -->
+    <EditText
+        android:id="@+id/etMachineName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Machine Name"
+        android:inputType="text" />
+
+    <!-- Cell Name Field -->
+    <EditText
+        android:id="@+id/etCellName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cell Name"
+        android:inputType="text" />
+
+    <!-- Operation Field -->
+    <EditText
+        android:id="@+id/etOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Operation"
+        android:inputType="text" />
+
+    <!-- Asset Code Field -->
+    <EditText
+        android:id="@+id/etAssetCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Asset Code"
+        android:inputType="text" />
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

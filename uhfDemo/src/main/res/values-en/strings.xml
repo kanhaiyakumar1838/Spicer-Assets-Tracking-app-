@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="power">power:</string>
+    <string name="set_power">set_power</string>
+    <string name="get_power">get_power</string>
+    <string name="band">band:</string>
+    <string name="set_band">set_band</string>
+    <string name="get_band">get_band</string>
+    <string name="set_session">set_session</string>
+    <string name="sn">sn</string>
+    <string name="count">count</string>
+    <string name="tag_count">tag_count:</string>
+    <string name="total_count">total_count:</string>
+    <string name="time">time:</string>
+    <string name="start">start</string>
+    <string name="clear">clear</string>
+    <string name="check_tag">check_tag</string>
+    <string name="password">password:</string>
+    <string name="destory">destory</string>
+    <string name="get_session"  >get_Session</string>
+    <string name="lock_area">lock_area:</string>
+    <string name="lock_type">lock_type:</string>
+    <string name="lock">lock</string>
+    <string name="read">read</string>
+    <string name="data">data:</string>
+    <string name="data_length">data_length:</string>
+    <string name="start_address">start_address:</string>
+    <string name="area">area:</string>
+    <string name="asses_pwd">asses_pwd:</string>
+    <string name="write">write</string>
+    <string name="tip">Note: The starting address and length units are words, one word equals two bytes</string>
+    <string name="one">single</string>
+    <string name="app_name">UHF-Demo</string>
+    <string name="inventory">inventory</string>
+    <string name="set">set</string>
+    <string name="starts">start</string>
+    <string name="stop">stop</string>
+    <string name="success">success</string>
+    <string name="fail">fail</string>
+    <string name="tips">The password must contain 4 bytes of hexadecimal data!</string>
+    <string name="select">Select the specified label</string>
+    <string name="sure">sure</string>
+    <string name="cancle" tools:ignore="ButtonCase">cancel</string>
+    <string name="no">Data cannot be null!</string>
+    <string name="nono">Data and length do not match!</string>
+    <string name="start_connect">connect…</string>
+    <string name="firmware_ver">firmware_ver</string>
+    <string name="temperature">temperature</string>
+    <string name="api">API_ver</string>
+    <string name="app">APP_ver</string>
+    <string name="temperaturem">temperature</string>
+    <string name="firm">firm_ver</string>
+    <string name="export">export</string>
+    <string name="tiplen">The password must contain 4 bytes of hexadecimal data!</string>
+    <string name="killerr">err!</string>
+    <string name="successKill">success!</string>
+    <string name="selectTag">selectTag</string>
+    <string name="sures">sure</string>
+    <string name="cancles">cancle</string>
+    <string name="datanonull">data no null!</string>
+    <string name="nolong">data length no !</string>
+    <string name="stop_time">stop_time:</string>
+    <string name="s">s</string>
+    <string name="set_time">set_time</string>
+    <string name="areas">area:</string>
+    <string name="start_addr">start_address:</string>
+    <string name="length">data_length:</string>
+    <string name="datas">data:</string>
+    <string name="set_point">set point</string>
+    <string name="get_point">get point</string>
+    <string name="set_rf_link">Link set</string>
+
+
+    <string name="get_rf_link">Link get</string>
+    <string name="write_zh">中文写入</string>
+
+
+    <array name="arrFrequencyBand">
+        <item>USA（902-928）</item>
+        <item>Ch1（920-925）</item>
+        <item>EUR（865-867）</item>
+        <item>Ch2（840-845）</item>
+        <item>All（840-960）</item>
+    </array>
+
+    <array name="arrLockMembank">
+        <item>KillPwd</item>
+        <item>AccessPwd</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </array>
+    <array name="arrLockAtion">
+        <item>lock</item>
+        <item>unLock</item>
+        <item>neverLock</item>
+        <item>neverUnLock</item>
+    </array>
+
+</resources>

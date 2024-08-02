@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 34
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 34
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        externalNativeBuild {
+            cmake {
+                abiFilters "arm64-v8a" //abi体系结构下的so库
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+           File strFile = new File("/android.keystore")
+            storeFile file(strFile)
+            storePassword "123456"
+            keyPassword "123456"
+            keyAlias "keyAlias"
+        }
+        release {
+            File strFile = new File("/release.jks")
+            storeFile file(strFile)
+            storePassword "123456"
+            keyPassword "123456"
+            keyAlias "keyAlias"
+        }
+    }
+
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            android.libraryVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "HCUHF_${versionCodeA()}_${releaseTime()}.aar"
+                }
+            }
+            buildConfigField("int", "API_VERSION", "${releaseTime()}")
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("int", "API_VERSION", "${releaseTime()}")
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jni/libs']
+            java.srcDirs = ['src/main/java']
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/jni/CMakeLists.txt')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    namespace 'com.xlzn.hcpda'
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+
+    implementation files('libs\\classes.jar')
+    implementation files('libs\\IGLBarDecoder.jar')
+    implementation files('libs\\jxl.jar')
+    implementation files('libs\\xUtils-2.5.5.jar')
+
+}
+
+static def releaseTime() {
+    new Date().format("yyyyMMdd", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+static def versionName() {
+    "\"v1.0.5\""
+}
+
+static def versionCodeA() {
+    "v1.0.5"
+}

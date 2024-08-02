@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
+     />
+
+
+    <EditText
+        android:id="@+id/etEpcNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="EPC Number"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/btnFetchEpc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fetch EPC"/>
+
+    <EditText
+        android:id="@+id/etMachineName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Machine Name"/>
+
+    <EditText
+        android:id="@+id/etCellName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cell Name"/>
+
+    <EditText
+        android:id="@+id/etOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Operation"/>
+
+    <EditText
+        android:id="@+id/etAssetCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Asset Code"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"/>
+
+</LinearLayout>

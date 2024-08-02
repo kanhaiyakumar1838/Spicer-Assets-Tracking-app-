@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.LockFragment">
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etPWDLock"
+            app:layout_constraintBottom_toBottomOf="@id/etPWDLock"
+            android:id="@+id/tvPWD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password" />
+
+        <EditText
+            android:hint="00000000"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvPWD"
+            android:id="@+id/etPWDLock"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/etPWDLock"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/spLockBank"
+        app:layout_constraintBottom_toBottomOf="@id/spLockBank"
+        android:id="@+id/tvLockBank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lock_area" />
+    <Spinner
+        android:hint="00000000"
+        app:layout_constraintTop_toBottomOf="@id/etPWDLock"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvLockBank"
+        android:id="@+id/spLockBank"
+        android:layout_width="0dp"
+        android:entries="@array/arrLockMembank"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/spLockBank"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/spLockAction"
+        app:layout_constraintBottom_toBottomOf="@id/spLockAction"
+        android:id="@+id/tvLockAtion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lock_type" />
+
+    <Spinner
+        android:hint="00000000"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/spLockBank"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvLockAtion"
+        android:id="@+id/spLockAction"
+        android:layout_width="0dp"
+        android:entries="@array/arrLockAtion"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+        <CheckBox
+            app:layout_constraintLeft_toLeftOf="@id/etPWDLock"
+            app:layout_constraintTop_toBottomOf="@id/spLockAction"
+            android:id="@+id/cbSelectLock"
+            android:text="@string/check_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            app:layout_constraintTop_toBottomOf="@id/cbSelectLock"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="20dp"
+            android:id="@+id/btnLock"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/lock" />
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>

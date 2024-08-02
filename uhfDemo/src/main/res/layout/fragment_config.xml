@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".ui.main.ConfigFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/spPower"
+        app:layout_constraintBottom_toBottomOf="@id/spPower"
+        android:id="@+id/tvPower"
+        android:textSize="@dimen/config_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/power" />
+    <Spinner
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvPower"
+        android:id="@+id/spPower"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="40dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/spPower"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnGetPower"
+        app:layout_constraintBottom_toBottomOf="@id/btnGetPower"
+        android:id="@+id/btnSetPower"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/set_power" />
+    <Button
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/spPower"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnSetPower"
+        android:id="@+id/btnGetPower"
+        android:layout_width="0dp"
+        android:text="@string/get_power"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:textSize="@dimen/config_size"
+        app:layout_constraintTop_toBottomOf="@id/btnGetPower"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/spFrequencyBand"
+        app:layout_constraintBottom_toBottomOf="@id/spFrequencyBand"
+        android:id="@+id/tvFrequencyBand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/band" />
+    <Spinner
+
+        app:layout_constraintTop_toBottomOf="@id/btnGetPower"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvFrequencyBand"
+        android:id="@+id/spFrequencyBand"
+        android:entries="@array/arrFrequencyBand"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="40dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/spFrequencyBand"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnGetFrequencyBand"
+        app:layout_constraintBottom_toBottomOf="@id/btnGetFrequencyBand"
+        android:id="@+id/btnSetFrequencyBand"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/set_band" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/spFrequencyBand"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnSetPower"
+        android:id="@+id/btnGetFrequencyBand"
+        android:layout_width="0dp"
+        android:text="@string/get_band"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:textSize="@dimen/config_size"
+        app:layout_constraintTop_toBottomOf="@id/btnGetFrequencyBand"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/spSession"
+        app:layout_constraintBottom_toBottomOf="@id/spSession"
+        android:id="@+id/tvSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Session:" />
+    <Spinner
+        app:layout_constraintTop_toBottomOf="@id/btnGetFrequencyBand"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvSession"
+        android:entries="@array/arrSession"
+        android:id="@+id/spSession"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="40dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/spSession"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnGetSession"
+        app:layout_constraintBottom_toBottomOf="@id/btnGetSession"
+        android:id="@+id/btnSetSession"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/set_session" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/spSession"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnSetSession"
+        android:id="@+id/btnGetSession"
+        android:layout_width="0dp"
+        android:text="@string/get_session"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:textSize="@dimen/config_size"
+        app:layout_constraintTop_toBottomOf="@id/btnSetSession"
+        app:layout_constraintLeft_toLeftOf="parent"
+         android:id="@+id/tvFrequencyPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="frequency point:" />
+    <Spinner
+        app:layout_constraintTop_toBottomOf="@id/btnGetSession"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvFrequencyPoint"
+        android:entries="@array/arrPoint"
+        android:id="@+id/spFrequencyPoint"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="40dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/spFrequencyPoint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnGetFrequencyPoint"
+        app:layout_constraintBottom_toBottomOf="@id/btnGetFrequencyPoint"
+        android:id="@+id/btnSetFrequencyPoint"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/set_point" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/spFrequencyPoint"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnSetSession"
+        android:id="@+id/btnGetFrequencyPoint"
+        android:layout_width="0dp"
+        android:text="@string/get_point"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:layout_marginTop="@dimen/margin"
+        android:textSize="@dimen/config_size"
+        app:layout_constraintTop_toBottomOf="@id/btnSetSession"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/tvRFLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RFLink:" />
+    <Spinner
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/btnGetSession"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvFrequencyPoint"
+        android:entries="@array/arrRFLink"
+        android:id="@+id/spRFLink"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="40dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/spRFLink"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnGetFrequencyPoint"
+        app:layout_constraintBottom_toBottomOf="@id/btnGetFrequencyPoint"
+        android:id="@+id/btnSetRFLink"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/set_rf_link" />
+    <Button
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/spFrequencyPoint"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnSetSession"
+        android:id="@+id/btnGetRFLink"
+        android:layout_width="0dp"
+        android:text="@string/get_rf_link"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <CheckBox
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/btnGetFrequencyPoint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/cbEPC"
+        android:text="EPC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+
+        app:layout_constraintLeft_toRightOf="@id/cbEPC"
+        tools:ignore="MissingConstraints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <CheckBox
+        app:layout_constraintTop_toBottomOf="@id/cbEPC"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/cbTID"
+        android:text="TID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

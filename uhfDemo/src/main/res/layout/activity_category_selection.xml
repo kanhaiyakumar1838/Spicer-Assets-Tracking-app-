@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/background_color">
+
+    <GridLayout
+        android:id="@+id/grid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+
+        <Button
+            android:id="@+id/button_plant_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="Plant 1"
+            android:backgroundTint="@color/light_blue"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/button_plant_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="Plant 2"
+            android:backgroundTint="@color/light_blue"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/button_scog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="SCMG"
+            android:backgroundTint="@color/light_blue"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/button_admin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="Admin"
+            android:backgroundTint="@color/light_blue"
+            android:layout_margin="4dp" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/button_add_more_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Add More Category"
+        android:backgroundTint="@color/add_more_color"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp" />
+
+    <Button
+        android:id="@+id/button_delete_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Category"
+        android:backgroundTint="@color/add_more_color"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/button_add_more_category"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp" />
+
+</RelativeLayout>

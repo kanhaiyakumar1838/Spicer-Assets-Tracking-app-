@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+     >
+
+    <item
+        android:id="@+id/item_Temperature"
+        android:showAsAction="never"
+        android:title="@string/temperaturem"/>
+    <item
+        android:id="@+id/item_UHFVersion"
+        android:showAsAction="never"
+        android:title="@string/firm"/>
+    <item
+        android:id="@+id/item_apiVersion"
+        android:showAsAction="never"
+        android:title="@string/api"/>
+    <item
+        android:id="@+id/item_appVersion"
+        android:showAsAction="never"
+        android:title="@string/app"/>
+
+</menu>

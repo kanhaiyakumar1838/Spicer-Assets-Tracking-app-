@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/background_image">
+
+    <!-- Add Tag Button -->
+    <Button
+        android:id="@+id/button_add_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Tag"
+        android:background="@color/light_blue" />
+
+    <!-- Delete Tag Button -->
+    <Button
+        android:id="@+id/button_delete_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Tag"
+        android:layout_marginTop="16dp"
+        android:background="@color/light_blue" />
+
+    <!-- Verify Tag Button -->
+    <Button
+        android:id="@+id/button_verify_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Tag"
+        android:layout_marginTop="16dp"
+        android:background="@color/light_blue" />
+
+    <!-- History Button -->
+    <Button
+        android:id="@+id/button_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:layout_marginTop="16dp"
+        android:background="@color/light_blue" />
+
+</LinearLayout>

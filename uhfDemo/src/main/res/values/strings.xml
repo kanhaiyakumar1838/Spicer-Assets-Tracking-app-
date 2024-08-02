@@ -1,0 +1,217 @@
+<resources>
+    <string name="app_name">超高频测试Demo-v1.7_0</string>
+    <array name="arrPower">
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+        <item>"8"</item>
+        <item>"9"</item>
+        <item>"10"</item>
+        <item>"11"</item>
+        <item>"12"</item>
+        <item>"13"</item>
+        <item>"14"</item>
+        <item>"15"</item>
+        <item>"16"</item>
+        <item>"17"</item>
+        <item>"18"</item>
+        <item>"19"</item>
+        <item>"20"</item>
+        <item>"21"</item>
+        <item>"22"</item>
+        <item>"23"</item>
+        <item>"24"</item>
+        <item>"25"</item>
+        <item>"26"</item>
+        <item>"27"</item>
+        <item>"28"</item>
+        <item>"29"</item>
+        <item>"30"</item>
+        <item>"31"</item>
+        <item>"32"</item>
+        <item>"33"</item>
+    </array>
+    <array name="arrRFLink">
+        <item>"Tari=7.5us/PR_ASK/FM0/640KHz"</item>
+        <item>"Tari=7.5us/PR_ASK/Miller2/640KHz"</item>
+        <item>"Tari=20us/PR_ASK/Miller4/250KHz"</item>
+        <item>"Tari=20us/PR_ASK/Miller8/160KHz"</item>
+
+
+
+    </array>
+    <array name="arrPoint">
+        <item>"902750"</item>
+        <item>"903250"</item>
+        <item>"903750"</item>
+        <item>"904250"</item>
+        <item>"904750"</item>
+        <item>"905250"</item>
+        <item>"905750"</item>
+        <item>"906250"</item>
+        <item>"906750"</item>
+        <item>"907250"</item>
+        <item>"907750"</item>
+        <item>"908250"</item>
+        <item>"908750"</item>
+        <item>"909250"</item>
+        <item>"909750"</item>
+        <item>"910250"</item>
+        <item>"910750"</item>
+        <item>"911250"</item>
+        <item>"911750"</item>
+        <item>"912250"</item>
+        <item>"912750"</item>
+        <item>"913250"</item>
+        <item>"913750"</item>
+        <item>"914250"</item>
+        <item>"914750"</item>
+        <item>"915250"</item>
+        <item>"915750"</item>
+        <item>"916250"</item>
+        <item>"916750"</item>
+        <item>"917250"</item>
+        <item>"917750"</item>
+        <item>"918250"</item>
+        <item>"918750"</item>
+        <item>"919250"</item>
+        <item>"919750"</item>
+        <item>"920250"</item>
+        <item>"920750"</item>
+        <item>"921250"</item>
+        <item>"921750"</item>
+        <item>"922250"</item>
+        <item>"922750"</item>
+        <item>"923250"</item>
+        <item>"923750"</item>
+        <item>"924250"</item>
+        <item>"924750"</item>
+        <item>"925250"</item>
+        <item>"925750"</item>
+        <item>"926250"</item>
+        <item>"926750"</item>
+
+    </array>
+    <array name="arrFrequencyBand">
+        <item>北美（902-928）</item>
+        <item>中国1（920-925）</item>
+        <item>欧频（865-867）</item>
+        <item>中国2（840-845）</item>
+        <item>全频段（840-960）</item>
+    </array>
+
+    <array name="arrLockMembank">
+        <item>KillPwd</item>
+        <item>AccessPwd</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </array>
+    <array name="arrLockAtion">
+        <item>锁</item>
+        <item>解锁</item>
+        <item>永久锁</item>
+        <item>永久解锁</item>
+    </array>
+
+    <array name="arrSelectMembank">
+        <item>EPC</item>
+        <item>TID</item>
+        <item>User</item>
+    </array>
+
+    <array name="arrSession">
+        <item>S0</item>
+        <item>S1</item>
+        <item>S2</item>
+        <item>S3</item>
+    </array>
+
+
+    <array name="arrMembank">
+        <item>Reserved</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>User</item>
+    </array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="power">读写功率:</string>
+    <string name="set_power">设置功率</string>
+    <string name="get_power">获取功率</string>
+    <string name="band">频段:</string>
+    <string name="set_band">设置频段</string>
+    <string name="get_band">获取频段</string>
+    <string name="set_session">设置Session</string>
+    <string name="get_session"  >获取Session</string>
+    <string name="sn">序号</string>
+    <string name="count">次数</string>
+    <string name="tag_count">标签张数:</string>
+    <string name="total_count">总次数:</string>
+    <string name="time">盘点时间:</string>
+    <string name="start">开始盘点</string>
+    <string name="one">单次盘点</string>
+    <string name="clear">清空</string>
+    <string name="check_tag">指定标签</string>
+    <string name="password">访问密码:</string>
+    <string name="destory">销毁</string>
+    <string name="lock_area">锁的区域:</string>
+    <string name="lock_type">锁的操作:</string>
+    <string name="lock">锁</string>
+    <string name="tip">注意：起始地址和长度单位是字,1个字等于两个字节</string>
+    <string name="read">读取</string>
+    <string name="data">数   据:</string>
+    <string name="data_length">数据长度:</string>
+    <string name="start_address">起始地址:</string>
+    <string name="area">区   域:</string>
+    <string name="asses_pwd">访问密码:</string>
+    <string name="write">写</string>
+    <string name="inventory">盘点</string>
+    <string name="set">配置</string>
+    <string name="starts">开始盘点</string>
+    <string name="stop">停止盘点</string>
+    <string name="success">成功</string>
+    <string name="fail">失败</string>
+    <string name="tips">密码长度必须是4个字节的十六进制数据!</string>
+    <string name="select">选择指定标签</string>
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
+    <string name="no">数据不能为空!</string>
+    <string name="nono">数据和长度不匹配!</string>
+    <string name="start_connect">开始连接…</string>
+    <string name="firmware_ver">固件版本:</string>
+    <string name="temperature">模块温度:</string>
+    <string name="api">API版本</string>
+    <string name="app">模块型号</string>
+    <string name="temperaturem">模块温度</string>
+    <string name="firm">固件版本</string>
+    <string name="export">导出</string>
+    <string name="tiplen">密码长度必须是4个字节的十六进制数据!</string>
+    <string name="killerr">销毁失败!</string>
+    <string name="successKill">销毁成功!</string>
+    <string name="selectTag">选择指定标签</string>
+    <string name="sures">确定</string>
+    <string name="cancles">取消</string>
+    <string name="datanonull">数据不能为空!</string>
+    <string name="nolong">数据和长度不匹配!</string>
+    <string name="stop_time">停止时间:</string>
+    <string name="s">秒</string>
+    <string name="set_time">定时</string>
+    <string name="areas">区 域:</string>
+    <string name="start_addr">起始地址:</string>
+    <string name="length">数据长度:</string>
+    <string name="datas">数 据:</string>
+    <string name="set_point">设置频点</string>
+    <string name="get_point">获取频点</string>
+    <string name="set_rf_link">设置链路</string>
+    <string name="get_rf_link">获取链路</string>
+    <string name="write_zh">中文写入</string>
+    <string name="tag_data_empty">Tag data cannot be empty.</string>
+
+
+</resources>
+
+
+

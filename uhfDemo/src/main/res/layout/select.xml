@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/spSelectMembank"
+        app:layout_constraintBottom_toBottomOf="@id/spSelectMembank"
+        android:id="@+id/tvMembank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/areas" />
+    <Spinner
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvMembank"
+        android:id="@+id/spSelectMembank"
+        android:layout_width="0dp"
+        android:entries="@array/arrSelectMembank"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/spSelectMembank"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/etSelectAddress"
+        app:layout_constraintBottom_toBottomOf="@id/etSelectAddress"
+        android:id="@+id/tvSelectStartAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_addr" />
+
+    <EditText
+        android:id="@+id/etSelectAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="32"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/tvSelectStartAddress"
+        app:layout_constraintRight_toLeftOf="@id/tvSelectAddresUnit"
+        app:layout_constraintTop_toBottomOf="@id/spSelectMembank"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        app:layout_constraintBottom_toBottomOf="@id/etSelectAddress"
+        app:layout_constraintTop_toBottomOf="@id/spSelectMembank"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/etSelectAddress"
+        android:text="（bit）"
+        android:id="@+id/tvSelectAddresUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/etSelectAddress"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/etSelectLen"
+        app:layout_constraintBottom_toBottomOf="@id/etSelectLen"
+        android:id="@+id/tvLen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/length" />
+
+    <EditText
+        android:id="@+id/etSelectLen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="96"
+        android:inputType="number"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/tvLen"
+        app:layout_constraintRight_toLeftOf="@id/tvSelectLenUnit"
+        app:layout_constraintTop_toBottomOf="@id/etSelectAddress"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintBottom_toBottomOf="@id/etSelectLen"
+        app:layout_constraintTop_toBottomOf="@id/etSelectAddress"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/etSelectLen"
+        android:text="（bit）"
+        android:id="@+id/tvSelectLenUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/etSelectLen"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/etSelectData"
+        app:layout_constraintBottom_toBottomOf="@id/etSelectData"
+        android:id="@+id/tvData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/datas" />
+    <EditText
+        app:layout_constraintTop_toBottomOf="@id/etSelectLen"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvData"
+        android:id="@+id/etSelectData"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

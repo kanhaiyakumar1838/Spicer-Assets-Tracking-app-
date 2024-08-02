@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.ReadFragment">
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etPWDRead"
+            app:layout_constraintBottom_toBottomOf="@id/etPWDRead"
+            android:id="@+id/tvPWD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/asses_pwd" />
+        <EditText
+            android:hint="00000000"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvPWD"
+            android:id="@+id/etPWDRead"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/etPWDRead"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/spMembankRead"
+            app:layout_constraintBottom_toBottomOf="@id/spMembankRead"
+            android:id="@+id/tvMembank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/area" />
+        <Spinner
+            app:layout_constraintTop_toBottomOf="@id/etPWDRead"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvMembank"
+            android:id="@+id/spMembankRead"
+            android:layout_width="0dp"
+            android:entries="@array/arrMembank"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/spMembankRead"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etAddressRead"
+            app:layout_constraintBottom_toBottomOf="@id/etAddressRead"
+            android:id="@+id/tvStartAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_address" />
+
+        <EditText
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@id/spMembankRead"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvStartAddress"
+            android:id="@+id/etAddressRead"
+            android:hint="2"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/etAddressRead"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etLenRead"
+            app:layout_constraintBottom_toBottomOf="@id/etLenRead"
+            android:id="@+id/tvLen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/data_length" />
+        <EditText
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@id/etAddressRead"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvLen"
+            android:id="@+id/etLenRead"
+            android:layout_width="0dp"
+            android:hint="6"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/etLenRead"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etDataRead"
+            app:layout_constraintBottom_toBottomOf="@id/etDataRead"
+            android:id="@+id/tvData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/data" />
+        <EditText
+            app:layout_constraintTop_toBottomOf="@id/etLenRead"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvData"
+            android:id="@+id/etDataRead"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+          <CheckBox
+            app:layout_constraintLeft_toLeftOf="@id/etDataRead"
+            app:layout_constraintTop_toBottomOf="@id/etDataRead"
+            android:id="@+id/cbSelectRead"
+            android:text="@string/check_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            app:layout_constraintTop_toBottomOf="@id/cbSelectRead"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="20dp"
+            android:id="@+id/btnRead"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/read" />
+
+        <TextView
+            android:text="@string/tip"
+            app:layout_constraintTop_toBottomOf="@id/btnRead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

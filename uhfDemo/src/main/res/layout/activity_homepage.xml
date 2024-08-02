@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Tag"
-        android:background="@color/light_blue" />
+        android:background="@drawable/rounded_button" />
 
     <!-- Delete Tag Button -->
     <Button
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="Delete Tag"
         android:layout_marginTop="16dp"
-        android:background="@color/light_blue" />
+        android:background="@drawable/rounded_button" />
 
     <!-- Verify Tag Button -->
     <Button
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="Verify Tag"
         android:layout_marginTop="16dp"
-        android:background="@color/light_blue" />
+        android:background="@drawable/rounded_button" />
 
     <!-- History Button -->
     <Button
@@ -40,6 +40,6 @@
         android:layout_height="wrap_content"
         android:text="History"
         android:layout_marginTop="16dp"
-        android:background="@color/light_blue" />
+        android:background="@drawable/rounded_button" />
 
 </LinearLayout>

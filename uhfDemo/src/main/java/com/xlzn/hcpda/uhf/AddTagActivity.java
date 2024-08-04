@@ -97,7 +97,7 @@ public class AddTagActivity extends AppCompatActivity {
 
                             if (!TextUtils.isEmpty(epcHex) && epcHex.startsWith(singleRead)) {
                                 runOnUiThread(() -> etEpcNumber.setText(epcHex));
-                                Log.d(TAG, "Tag found: " + epcHex);
+                                Log.d(TAG, "Tag found in list: " + epcHex);
 
                                 UHFReader.getInstance().stopInventory();
                                 Log.d(TAG, "Inventory stopped");

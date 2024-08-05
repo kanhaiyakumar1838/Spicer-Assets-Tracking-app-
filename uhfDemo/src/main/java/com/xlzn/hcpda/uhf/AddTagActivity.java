@@ -102,7 +102,7 @@ public class AddTagActivity extends AppCompatActivity {
 
                             if (!TextUtils.isEmpty(epcHex) && epcHex.startsWith(singleRead)) {
                                 runOnUiThread(() -> etEpcNumber.setText(epcHex));
-                                Log.d(TAG, "Tag found: " + epcHex);
+                                Log.d(TAG, "Tag found in list: " + epcHex);
 
                                 UHFReader.getInstance().stopInventory();
                                 Log.d(TAG, "Inventory stopped");
@@ -111,7 +111,7 @@ public class AddTagActivity extends AppCompatActivity {
                         }
                     } else {
                         runOnUiThread(() -> Toast.makeText(AddTagActivity.this, "No tag found", Toast.LENGTH_SHORT).show());
-                        Log.d(TAG, "No tag found");
+                        Log.d(TAG, "No tag found in list");
                     }
                 }
             });

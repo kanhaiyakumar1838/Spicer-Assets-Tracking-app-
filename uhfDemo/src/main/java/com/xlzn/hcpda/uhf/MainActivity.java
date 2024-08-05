@@ -58,7 +58,16 @@ public class MainActivity extends AppCompatActivity {
         Utils.loadSoundPool(this);
         Intent intent = getIntent();
         int fetchValue = intent.getIntExtra("fetch", 0);
+        String category = intent.getStringExtra("category");
+        String mode = intent.getStringExtra("mode"); // Retrieve the mode value
+
         Log.d(TAG, "Fetch Value in MainActivity: " + fetchValue);
+        if (category != null) {
+            Log.d(TAG, "Category in MainActivity: " + category);
+        }
+        if (mode != null) {
+            Log.d(TAG, "Mode in MainActivity: " + mode); // Log mode for debugging
+        }
 
         Log.e(TAG, "onCreate: " +Build.FINGERPRINT );
           viewPager = findViewById(R.id.view_pager);
@@ -103,11 +112,31 @@ public class MainActivity extends AppCompatActivity {
         // Add fragments to the list
         //datas.add(new InventoryFragment());
         InventoryFragment inventoryFragment = new InventoryFragment();
+        Bundle args = new Bundle();
         if (fetchValue == 1) {
-            Bundle args = new Bundle();
+
             args.putInt("fetch", fetchValue);
-            inventoryFragment.setArguments(args);
+
         }
+        // Conditionally add category and mode to the bundle
+        if (category != null) {
+            args.putString("category", category);
+        }
+        if (mode != null) {
+            args.putString("mode", mode);
+        }
+        inventoryFragment.setArguments(args);
+        /*InventoryFragment inventoryFragment = new InventoryFragment();
+        Bundle args = new Bundle();
+        args.putInt("fetch", fetchValue);
+        if (category != null) {
+            args.putString("category", category);
+        }
+        if (mode != null) {
+            args.putString("mode", mode); // Pass the mode value to InventoryFragment
+        }
+        inventoryFragment.setArguments(args);
+        datas.add(inventoryFragment);*/
         datas.add(inventoryFragment);
         datas.add(new ConfigFragment());
         datas.add(new ReadFragment());

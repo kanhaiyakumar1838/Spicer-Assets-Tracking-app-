@@ -38,6 +38,8 @@ public class AddTagActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private static final String TAG = "AddTagActivity";
     private String category;
+    private String mode;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class AddTagActivity extends AppCompatActivity {
 
         // Retrieve the category name from the intent
         category = getIntent().getStringExtra("category");
+        mode = getIntent().getStringExtra("mode");
 
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK) {
@@ -74,6 +77,8 @@ public class AddTagActivity extends AppCompatActivity {
     private void fetchEpc() {
         Intent intent = new Intent(AddTagActivity.this, MainActivity.class);
         intent.putExtra("fetch", 1);
+        intent.putExtra("mode", mode); // Add the mode value to the intent
+        intent.putExtra("category", category); // Pass the category value
         activityResultLauncher.launch(intent);
     }
 

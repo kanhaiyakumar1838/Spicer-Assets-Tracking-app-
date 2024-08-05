@@ -34,6 +34,7 @@ public class DeleteTagActivity extends AppCompatActivity {
     private Button btnFetchEpc;
 
     private String category;
+    private String mode;
     private static final String TAG = "DeleteTagActivity";
 
     @Override
@@ -51,6 +52,7 @@ public class DeleteTagActivity extends AppCompatActivity {
 
         // Retrieve the category name from the intent
         category = getIntent().getStringExtra("category");
+        mode = getIntent().getStringExtra("mode");
 
         // Log the category value
         Log.d(TAG, "Category received: " + category);
@@ -63,6 +65,8 @@ public class DeleteTagActivity extends AppCompatActivity {
         // Start MainActivity with fetch value
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("fetch", 1); // Send fetch value to MainActivity
+        intent.putExtra("mode", mode); // Send mode value to MainActivity
+        intent.putExtra("category", category); // Send category value to MainActivity
         startActivityForResult(intent, REQUEST_CODE_FETCH_EPC);
     }
 

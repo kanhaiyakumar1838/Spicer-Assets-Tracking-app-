@@ -76,12 +76,29 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Objects;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 
 
 
 public class InventoryFragment extends MyFragment implements View.OnClickListener {
     private MainActivity mainActivity = null;
     private int fetch=0;
+    private String mode;
+    private String category;
 
     private RecyclerView recyclerview = null;
     private Button btExport;
@@ -100,14 +117,72 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
     CheckBox cb_ascii;
     private List<UHFTagEntity> tagEntityList = new ArrayList<>();
     EditText et_singleRead;
-    private String category;
+    private String lastScannedEpc = "";
 
 
 
-    public int findRowNumberByEpcNumber(String epcNumber) throws IOException {
-        try (InputStream inputStream = getResources().openRawResource(R.raw.rfid)) {
+
+
+    private String getExcelFileName() {
+        // The file name remains the same
+        return "tags.xlsx";
+    }
+    private File getHistoryExcelFile() {
+        return new File(requireContext().getExternalFilesDir(null), "history.xlsx");
+    }
+    private void saveHistoryToExcel(String epcNumber, String machineName, String operation, String scannedTime, String description, String category) throws IOException {
+        File historyFile = getHistoryExcelFile();
+        Workbook workbook;
+        Sheet sheet;
+
+        if (historyFile.exists()) {
+            try (InputStream inputStream = new FileInputStream(historyFile)) {
+                workbook = WorkbookFactory.create(inputStream);
+                sheet = workbook.getSheetAt(0);
+            }
+        } else {
+            workbook = WorkbookFactory.create(true);
+            sheet = workbook.createSheet("History");
+            Row header = sheet.createRow(0);
+            header.createCell(0).setCellValue("EPC Number");
+            header.createCell(1).setCellValue("Machine Name");
+            header.createCell(2).setCellValue("Operation");
+            header.createCell(3).setCellValue("Scanned Time");
+            header.createCell(4).setCellValue("Description");
+            header.createCell(5).setCellValue("Category"); // New column header
+        }
+
+        int lastRow = sheet.getLastRowNum();
+        Row row = sheet.createRow(lastRow + 1);
+        row.createCell(0).setCellValue(epcNumber);
+        row.createCell(1).setCellValue(machineName);
+        row.createCell(2).setCellValue(operation);
+        row.createCell(3).setCellValue(scannedTime);
+        row.createCell(4).setCellValue(description);
+        row.createCell(5).setCellValue(category); // New column data
+
+        try (FileOutputStream outputStream = new FileOutputStream(historyFile)) {
+            workbook.write(outputStream);
+        }
+        workbook.close();
+    }
+
+
+    private File getExcelFile() {
+        // Use requireContext() to ensure context is not null
+        return new File(requireContext().getExternalFilesDir(null), getExcelFileName());
+    }
+
+
+    private int findRowNumberByEpcNumber(String epcNumber) throws IOException {
+        File file = getExcelFile();
+        try (InputStream inputStream = new FileInputStream(file)) {
             Workbook workbook = WorkbookFactory.create(inputStream);
-            Sheet sheet = workbook.getSheetAt(0);
+            String sheetName = category; // Sheet name is based on the category
+            Sheet sheet = workbook.getSheet(sheetName);
+            if (sheet == null) {
+                throw new IOException("Sheet " + sheetName + " not found in " + file.getAbsolutePath());
+            }
             int rowsCount = sheet.getPhysicalNumberOfRows();
             for (int rowIndex = 1; rowIndex < rowsCount; rowIndex++) {
                 Row row = sheet.getRow(rowIndex);
@@ -126,9 +201,14 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
     }
 
     private String extractValueFromExcel(int columnIndex, int rowIndex) throws IOException {
-        try (InputStream inputStream = getResources().openRawResource(R.raw.rfid)) {
+        File file = getExcelFile();
+        try (InputStream inputStream = new FileInputStream(file)) {
             Workbook workbook = WorkbookFactory.create(inputStream);
-            Sheet sheet = workbook.getSheetAt(0);
+            String sheetName = category; // Sheet name is based on the category
+            Sheet sheet = workbook.getSheet(sheetName);
+            if (sheet == null) {
+                throw new IOException("Sheet " + sheetName + " not found in " + file.getAbsolutePath());
+            }
             Row row = sheet.getRow(rowIndex);
             if (row != null) {
                 Cell cell = row.getCell(columnIndex);
@@ -141,18 +221,25 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
     }
 
     private String extractMachineNameFromExcel(int rowIndex) throws IOException {
-        return extractValueFromExcel(1, rowIndex); // Assuming machine name is in the second column (index 1)
+        // Assuming machine name is in the 2nd column (index 1)
+        return extractValueFromExcel(1, rowIndex);
     }
 
     private String extractOperationFromExcel(int rowIndex) throws IOException {
-        return extractValueFromExcel(3, rowIndex); // Assuming operation is in the fourth column (index 3)
+        // Assuming operation is in the 4th column (index 3)
+        return extractValueFromExcel(3, rowIndex);
     }
-    private String extractCellNameFromExcel(Integer rowIndex) throws IOException {
-        return extractValueFromExcel(2,rowIndex); // Assuming cell name is in the third column (index 2)
+
+    private String extractCellNameFromExcel(int rowIndex) throws IOException {
+        // Assuming cell name is in the 3rd column (index 2)
+        return extractValueFromExcel(2, rowIndex);
     }
+
     private String extractAssetCodeFromExcel(int rowIndex) throws IOException {
-        return extractValueFromExcel(4,rowIndex); // Assuming asset code is in the fifth column (index 4)
+        // Assuming asset code is in the 5th column (index 4)
+        return extractValueFromExcel(4, rowIndex);
     }
+
 
 
     Handler handler = new Handler(Looper.myLooper()) {
@@ -245,11 +332,14 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_inventory, container, false);
         // Retrieve category from arguments
         if (getArguments() != null) {
+            mode = getArguments().getString("mode");
             category = getArguments().getString("category");
         }
 
-        // Use the category value as needed
+        // Use the mode and category values as needed
+        Log.d("InventoryFragment", "Mode received: " + mode);
         Log.d("InventoryFragment", "Category received: " + category);
+
 
         return view;
     }
@@ -262,7 +352,11 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
         Bundle args = getArguments();
         if (args != null) {
             fetch = args.getInt("fetch", 0);
+            mode = args.getString("mode");
+            category = args.getString("category");
             Log.d("InventoryFragment", "Fetch value: " + fetch);
+            Log.d("InventoryFragment", "Mode: " + mode);
+            Log.d("InventoryFragment", "Category: " + category);
         } else {
             Log.d("InventoryFragment", "Arguments are null");
             Log.d("InventoryFragment", "Fetch value: " + fetch);
@@ -422,6 +516,13 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
                                 resultIntent.putExtra("epcNumber", epcHex);
                                 getActivity().setResult(Activity.RESULT_OK, resultIntent);
                                 getActivity().finish(); // Finish MainActivity to return to AddTagActivity
+                                String scannedTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+                                String description = mode.equals("add") ? "tag added" : (mode.equals("delete") ? "tag deleted" : "tag added/deleted");
+                                try {
+                                    saveHistoryToExcel(epcHex, "N/A", "N/A", scannedTime, description,category);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                                 return;
                             }
                         }
@@ -451,6 +552,16 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
                                             tag.setCellName(extractCellNameFromExcel(rowIndex));
                                             tag.setAssetCode(extractAssetCodeFromExcel(rowIndex));
                                             Log.d("InventoryFragment2", "MachineName: " + tag.getMachineName() + ", Operation: " + tag.getOperation());
+                                            // Save history to Excel if it's a new tag
+                                            // Save history to Excel if it's a new tag
+                                            if (!tag.getEcpHex().equals(lastScannedEpc)) {
+                                                String scannedTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+                                                // Save history with description for verification mode
+                                                saveHistoryToExcel(tag.getEcpHex(), tag.getMachineName(), tag.getOperation(), scannedTime, "Tag Verified",category);
+
+                                                lastScannedEpc = tag.getEcpHex(); // Update the last scanned EPC
+                                            }
+                                            //saveHistoryToExcel(tag.getEcpHex(), tag.getMachineName(), tag.getOperation(), scannedTime);
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }

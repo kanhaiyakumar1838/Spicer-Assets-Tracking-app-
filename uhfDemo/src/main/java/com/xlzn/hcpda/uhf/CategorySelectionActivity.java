@@ -77,18 +77,20 @@ public class CategorySelectionActivity extends AppCompatActivity {
                     case "add":
                         // Logic for Add Tag mode
                         intent = new Intent(CategorySelectionActivity.this, AddTagActivity.class);
-                        intent.putExtra("category", category);
+                        intent.putExtra("category", category); // Pass category
+                        intent.putExtra("mode", mode); // Pass mode
                         startActivity(intent);
                         break;
                     case "verify":
                         intent = new Intent(CategorySelectionActivity.this, MainActivity.class);
                         intent.putExtra("category", category); // Pass category
+                        intent.putExtra("mode", mode); // Pass mode
                         startActivity(intent);
                         break;
                     case "delete":
-                        // Logic for Delete Tag mode
                         intent = new Intent(CategorySelectionActivity.this, DeleteTagActivity.class);
                         intent.putExtra("category", category); // Pass category
+                        intent.putExtra("mode", mode); // Pass mode
                         startActivity(intent);
                         break;
                 }

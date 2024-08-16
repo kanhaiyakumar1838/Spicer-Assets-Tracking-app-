@@ -222,24 +222,29 @@ public class AddTagActivity extends AppCompatActivity {
         Workbook workbook;
         Sheet sheet;
 
+        // If the file exists, load it. If not, create a new workbook and sheet.
         if (file.exists()) {
             try (FileInputStream fis = new FileInputStream(file)) {
                 workbook = new XSSFWorkbook(fis);
                 sheet = workbook.getSheet(category); // Use category as sheet name
+                if (sheet == null) {
+                    sheet = workbook.createSheet(category); // Create sheet if not exists
+                    addHeaderRow(sheet); // Add header row to the new sheet
+                }
             } catch (IOException e) {
                 Log.e(TAG, "Error reading existing Excel file", e);
                 workbook = new XSSFWorkbook();
                 sheet = workbook.createSheet(category); // Create new sheet with category name
+                addHeaderRow(sheet); // Add header row to the new sheet
             }
         } else {
+            // Create a new workbook and sheet since the file does not exist
             workbook = new XSSFWorkbook();
             sheet = workbook.createSheet(category); // Create new sheet with category name
+            addHeaderRow(sheet); // Add header row to the new sheet
         }
 
-        if (sheet == null) {
-            sheet = workbook.createSheet(category); // Create sheet if not exists
-        }
-
+        // Add the new data to the sheet
         int lastRowNum = sheet.getLastRowNum();
         Row row = sheet.createRow(lastRowNum + 1);
         row.createCell(0).setCellValue(epcNumber);
@@ -248,10 +253,22 @@ public class AddTagActivity extends AppCompatActivity {
         row.createCell(3).setCellValue(operation);
         row.createCell(4).setCellValue(assetCode);
 
+        // Write the workbook to the file
         try (FileOutputStream fos = new FileOutputStream(file)) {
             workbook.write(fos);
+            Log.d(TAG, "Excel file saved successfully.");
         } catch (IOException e) {
             Log.e(TAG, "Error saving Excel file", e);
         }
+    }
+
+    // Method to add header row
+    private void addHeaderRow(Sheet sheet) {
+        Row headerRow = sheet.createRow(0);
+        headerRow.createCell(0).setCellValue("TAG ID");
+        headerRow.createCell(1).setCellValue("MACHINE NAME");
+        headerRow.createCell(2).setCellValue("CELL NAME");
+        headerRow.createCell(3).setCellValue("OPERATION");
+        headerRow.createCell(4).setCellValue("ASSET CODE");
     }
 }

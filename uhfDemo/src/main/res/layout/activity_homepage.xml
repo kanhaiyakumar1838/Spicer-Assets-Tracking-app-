@@ -41,5 +41,13 @@
         android:text="History"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_button" />
+    <Button
+        android:id="@+id/button_view_excel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Excel"
+        android:layout_marginTop="16dp"
+        android:background="@color/light_blue" />
+
 
 </LinearLayout>

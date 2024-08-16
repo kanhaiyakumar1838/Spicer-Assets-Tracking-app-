@@ -3,14 +3,10 @@ package com.xlzn.hcpda.uhf;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
-
 import java.io.File;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -23,7 +19,8 @@ public class HomePageActivity extends AppCompatActivity {
         Button addTagButton = findViewById(R.id.button_add_tag);
         Button verifyTagButton = findViewById(R.id.button_verify_tag);
         Button deleteTagButton = findViewById(R.id.button_delete_tag);
-        Button historyButton = findViewById(R.id.button_history); // Add this line
+        Button historyButton = findViewById(R.id.button_history);
+        Button viewExcelButton = findViewById(R.id.button_view_excel); // Added button for "View Excel"
 
         addTagButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +55,13 @@ public class HomePageActivity extends AppCompatActivity {
                 openHistoryFile();
             }
         });
+
+        viewExcelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTagsFile(); // Open the tags.xlsx file when button is clicked
+            }
+        });
     }
 
     private void openHistoryFile() {
@@ -70,4 +74,13 @@ public class HomePageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void openTagsFile() {
+        File file = new File(getExternalFilesDir(null), "tags.xlsx");
+        Uri fileUri = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".fileprovider", file);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(fileUri, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(intent);
+    }
 }

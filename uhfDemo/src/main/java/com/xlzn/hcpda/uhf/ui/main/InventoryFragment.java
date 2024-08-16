@@ -168,53 +168,94 @@ public class InventoryFragment extends MyFragment implements View.OnClickListene
     }
 
 
-    private File getExcelFile() {
-        // Use requireContext() to ensure context is not null
-        return new File(requireContext().getExternalFilesDir(null), getExcelFileName());
-    }
+  
 
+    private File getExcelFile() {
+        File file = new File(requireContext().getExternalFilesDir(null), getExcelFileName());
+        if (!file.exists()) {
+            Log.e("InventoryFragment", "File not found: " + file.getAbsolutePath());
+        }
+        return file;
+    }
 
     private int findRowNumberByEpcNumber(String epcNumber) throws IOException {
         File file = getExcelFile();
+        if (!file.exists()) {
+            throw new IOException("File not found: " + file.getAbsolutePath());
+        }
+
         try (InputStream inputStream = new FileInputStream(file)) {
             Workbook workbook = WorkbookFactory.create(inputStream);
-            String sheetName = category; // Sheet name is based on the category
+            String sheetName = category; // Ensure 'category' is correctly set
             Sheet sheet = workbook.getSheet(sheetName);
             if (sheet == null) {
                 throw new IOException("Sheet " + sheetName + " not found in " + file.getAbsolutePath());
             }
-            int rowsCount = sheet.getPhysicalNumberOfRows();
-            for (int rowIndex = 1; rowIndex < rowsCount; rowIndex++) {
+
+            int lastRowIndex = sheet.getLastRowNum(); // Get the last row index
+            Log.d("InventoryFragment", "Total rows in sheet " + sheetName + ": " + lastRowIndex);
+
+            for (int rowIndex = 0; rowIndex <= lastRowIndex; rowIndex++) {
                 Row row = sheet.getRow(rowIndex);
                 if (row != null) {
                     Cell cell = row.getCell(0);
                     if (cell != null) {
-                        String newEpc = cell.getStringCellValue();
-                        if (Objects.equals(newEpc.trim(), epcNumber.trim())) {
-                            return rowIndex;
+                        String newEpc = "";
+                        switch (cell.getCellType()) {
+                            case STRING:
+                                newEpc = cell.getStringCellValue();
+                                break;
+                            case NUMERIC:
+                                newEpc = String.valueOf((long) cell.getNumericCellValue()); // For integer-like numbers
+                                break;
+                            default:
+                                newEpc = cell.toString();
+                                break;
                         }
+                        Log.d("InventoryFragment", "Row " + rowIndex + ", Cell 0 value: " + newEpc);
+                        if (newEpc.trim().equals(epcNumber.trim())) {
+                            Log.d("InventoryFragment", "Match found at row " + rowIndex);
+                            return rowIndex;
+                        } else {
+                            Log.d("InventoryFragment", "No match at row " + rowIndex);
+                        }
+                    } else {
+                        Log.d("InventoryFragment", "Row " + rowIndex + " has no cell at index 0");
                     }
+                } else {
+                    Log.d("InventoryFragment", "Row " + rowIndex + " is null");
                 }
             }
         }
+
+        Log.d("InventoryFragment", "No matching EPC number found");
         return -1;
     }
 
     private String extractValueFromExcel(int columnIndex, int rowIndex) throws IOException {
         File file = getExcelFile();
+        if (!file.exists()) {
+            throw new IOException("File not found: " + file.getAbsolutePath());
+        }
+
         try (InputStream inputStream = new FileInputStream(file)) {
             Workbook workbook = WorkbookFactory.create(inputStream);
-            String sheetName = category; // Sheet name is based on the category
+            String sheetName = category; // Ensure 'category' is correctly set
             Sheet sheet = workbook.getSheet(sheetName);
             if (sheet == null) {
                 throw new IOException("Sheet " + sheetName + " not found in " + file.getAbsolutePath());
             }
+
             Row row = sheet.getRow(rowIndex);
             if (row != null) {
                 Cell cell = row.getCell(columnIndex);
                 if (cell != null) {
-                    return cell.getStringCellValue();
+                    return cell.toString(); // Use toString() to handle different cell types
+                } else {
+                    Log.d("InventoryFragment", "Cell at row " + rowIndex + ", column " + columnIndex + " is null.");
                 }
+            } else {
+                Log.d("InventoryFragment", "Row at index " + rowIndex + " is null.");
             }
         }
         return null;
